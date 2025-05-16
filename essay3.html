@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay 3: PSA Analysis - Joseph Gledhill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Lighter, softer blue-gray background */
+            color: #1e293b; /* Slate-800 for primary text */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container-main {
+            max-width: 960px; /* Slightly wider for better content flow */
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-bottom: 4px solid #2563eb; /* Brighter blue accent */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0.75rem 0; /* Reduced padding */
+            margin: 0;
+        }
+        nav ul li a {
+            padding: 0.8rem 1.3rem; /* Adjusted padding for better touch targets */
+            margin: 0.3rem 0.2rem; /* Spacing between nav items */
+            border-radius: 6px; /* Softer rounded corners */
+            font-weight: 500;
+            font-size: 0.95rem; /* Slightly adjusted font size */
+            color: #334155; /* Slate-700 */
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #e0e7ff; /* Indigo-100 for hover */
+            color: #3730a3; /* Indigo-800 for hover text */
+            transform: translateY(-1px);
+        }
+        nav ul li a.active {
+            background-color: #2563eb; /* Brighter blue for active */
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Content Card Styling */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.09);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 3rem;
+        }
+        /* Essay Page Specific Styles */
+        .essay-page-title { /* For h2 on essay pages */
+            font-family: 'Lora', serif;
+            font-size: 2.2rem; 
+            font-weight: 700;
+            color: #172554; /* Midnight blue */
+            margin-bottom: 0.5rem; 
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #60a5fa; /* Lighter blue */
+            text-align: left; 
+        }
+        .essay-meta {
+            margin-bottom: 2rem; 
+        }
+        .essay-meta p {
+            font-size: 0.9rem;
+            color: #475569; /* Slate-600 */
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+        .essay-section {
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid #e2e8f0; /* Slate-200 */
+        }
+        .essay-section:first-of-type { 
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .essay-section h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            color: #1e40af; /* Blue-700 */
+            margin-bottom: 1rem;
+            display: inline-block; 
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #93c5fd; /* Blue-300 */
+        }
+        .essay-document-text {
+            font-family: 'Lora', serif;
+            background-color: #f8fafc; /* Slate-50 */
+            padding: 2rem; 
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; /* Slate-200 */
+            white-space: pre-wrap; 
+            font-size: 1rem;
+            line-height: 1.8; 
+            color: #334155; /* Slate-700 */
+        }
+        .essay-document-text p {
+            text-indent: 2em; 
+            margin-bottom: 0.5em !important; 
+        }
+        .essay-document-text p.no-indent { 
+            text-indent: 0 !important;
+        }
+        .essay-document-text strong.no-indent { 
+             display: block; 
+             text-indent: 0 !important;
+             margin-bottom: 0.5em !important; 
+             font-weight: bold; 
+        }
+        .essay-document-text p:last-child { 
+            margin-bottom: 0 !important;
+        }
+
+        .reflection-section h3 { 
+             color: #047857; /* Emerald-700 */
+             border-bottom-color: #34d399; /* Emerald-400 */
+        }
+        .reflection-text-area { 
+            background-color: #f0fdf4; /* Emerald-50 */
+            border-left: 4px solid #10b981; /* Emerald-500 */
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #065f46; /* Emerald-800 */
+        }
+        .reflection-text-area p {
+            text-indent: 1.5em !important; 
+            margin-bottom: 1em !important;
+            color: #065f46; 
+        }
+        .reflection-text-area p:last-child {
+            margin-bottom: 0 !important;
+        }
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            color: #64748b; /* Slate-500 */
+            border-top: 1px solid #cbd5e1; /* Slate-300 */
+            margin-top: 3rem;
+            background-color: #eef2ff; /* Indigo-50 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="essay1.html">Essay 1: Smartphone Adoption</a></li>
+                <li><a href="essay2.html">Essay 2: Sal's Pizzeria</a></li>
+                <li><a href="essay3.html" class="active">Essay 3: PSA Analysis</a></li>
+                <li><a href="essay4.html">Essay 4: Video Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-main">
+        <div class="content-card">
+            <h2 class="essay-page-title">Essay 3: PSA Analysis - Pee-wee Herman on Crack Cocaine</h2>
+            <div class="essay-meta">
+                <p><strong>Author:</strong> Joseph Gledhill</p>
+                <p><strong>Course:</strong> English 1510, Professor Turner</p>
+            </div>
+
+            <section class="essay-section">
+                <h3>Final Version</h3>
+                <p class="essay-meta"><strong class="text-gray-700">Date:</strong> March 25, 2025</p>
+                <div class="essay-document-text">
+                    <p class="no-indent"><strong>Drug Abuse Prevention Through Media: An Analysis of the Pee-wee Herman Crack Cocaine PSA</strong></p>
+                    <p>Drug abuse, especially highly addictive substances like crack cocaine, presents a serious societal problem. During the 1980s, when crack cocaine use had become a significant issue, numerous public service announcements were created to discourage its use. The PSA "Pee Wee Herman Talks About Crack Cocaine" features the character portrayed by Paul Reubens, recognizable by his signature gray suit and red bow tie. In this announcement, Herman holds a piece of crack cocaine while warning viewers of its deadly potential. This PSA targets a young audience, leveraging Herman's popularity with children. However, despite utilizing a recognizable figure to deliver its message, the PSA fails to effectively communicate the dangers of crack cocaine due to insufficient implementation of logos, ethos, and pathos.</p>
+                    <p>When examining the logical appeal, or logos, this PSA demonstrates significant weaknesses. It provides virtually no factual information or substantive reasoning to illustrate why crack cocaine poses such danger. Herman merely states that the drug is dangerous without offering evidence or explanations to support this claim. His statement that "Nobody knows how much it takes" attempts to highlight unpredictability as a danger, but lacks contextualization that would make this information meaningful. Unlike more effective anti-drug campaigns that present statistics, medical facts, or concrete examples of consequences, this PSA relies solely on a vague warning to "stay away." Without providing viewers with clear reasoning or factual evidence, the announcement fails to build a compelling logical case against crack cocaine use.</p>
+                    <p>The PSA relies heavily on Herman's celebrity status to establish credibility, or ethos. During the 1980s, Pee-wee Herman enjoyed considerable popularity among both children and adults through his television show and films. The producers evidently hoped his cultural relevance would enable him to effectively reach young audiences. However, this strategy presents inherent problems. The character of Pee-wee Herman, with his eccentric mannerisms and childlike persona, lacks the authority typically associated with credible sources on serious health issues. His characterization as a quirky, somewhat absurd figure potentially undermines the gravity of the message. Using Pee-wee Herman as an endorser for anti-drug messaging creates a disconnect between the messenger and the message, significantly weakening the PSA's ethos.</p>
+                    <p>Regarding emotional appeal, or pathos, the PSA makes minimal effort to engage viewers on an emotional level. It adopts a direct approach, apparently intending to invoke fear by simply stating that crack cocaine is dangerous and potentially lethal. However, this approach lacks the emotional depth necessary to create lasting impact. The announcement fails to illustrate consequences through scenarios, personal stories, or imagery that might evoke genuine emotional responses such as fear, empathy, or determination. The sterile presentation offers little to connect with viewers emotionally or inspire them to internalize the message. Without establishing this emotional connection, the PSA cannot effectively motivate behavioral change or attitude formation regarding crack cocaine.</p>
+                    <p>In conclusion, while the Pee-wee Herman anti-crack cocaine PSA attempts to leverage celebrity appeal to discourage drug use, it ultimately fails to communicate its message effectively. The absence of substantial logical evidence, questionable source credibility, and insufficient emotional engagement render it largely ineffective as a persuasive tool. The core message to avoid crack cocaine is valid, but the announcement's execution lacks the necessary rhetorical elements to convince viewers or educate them about the genuine dangers of drug abuse. Its reliance on name recognition without substantive content demonstrates how even with intentions that mean well, public health messaging can fall short when fundamental principles of effective communication are neglected.</p>
+                </div>
+            </section>
+
+            <section class="essay-section">
+                <h3>Rough Draft</h3>
+                <p class="essay-meta"><strong class="text-gray-700">Date:</strong> March 17, 2025</p>
+                <div class="essay-document-text">
+                    <p>Drug abuse, especially drugs like crack cocaine that can get you hooked real fast, is a serious problem. Back in the '80s, when crack was a big issue, there were a lot of public service announcements trying to get people to stay away from it. I Chose "Pee Wee Herman Talks About Crack Cocaine - PSA". You know, the goofy guy with the gray suit and red bow tie? In this PSA, he's holding a piece of crack, telling you it's bad news and can kill you. It's definitely aimed at young folks. I think that even though the PSA tries to make it a big deal because Pee-wee says it, it doesn't make the viewer understand what he's talking about, so because there is a lack of logos, ethos, and pathos, I don't think that it is effective in making the viewer understand how dangerous crack is.</p>
+                    <p>When it comes to logos, trying to get you to think about the logic of it all, this PSA really drops the ball. There aren't any actual facts or reasons to show you why crack is so bad. It doesn't give you information, so you're not going to think anything of it. Pee-wee just kind of says it's dangerous and leaves it at that. He does say that, "Nobody knows how much it takes." I think that he thinks that is impactful but doesn't give any real info on how to think about the information. Unlike other PSAs that show you the danger in numbers, this one says to stay away. You cannot get why because the PSA does not show you why.</p>
+                    <p>This PSA pretty much leans on Pee-wee Herman's reputation to make you believe what it's saying. Pee-wee was a big deal back then, and kids and adults liked him. That means the thought was because of his fame, he might be able to get through to the kids and teens. The problem is that his character is a little out there, you know? He is a weird man that likes kids, so it makes you wonder whether or not a child is likely to listen to a man like that. I can see that using Pee-wee Herman as an endorser may not have been the best idea to create ethos.</p>
+                    <p>This PSA tries to use a little bit of pathos, or emotional pull, by being really straight about it. I think they were just trying to say that something is bad, so that it would scare you. I don't think this creates pathos because it doesn't have the needed effect, because there is so little emotion. There is a lot that is not done to it, and you'll find that there is no empathy there.</p>
+                    <p>So, to sum it up, the Pee-wee Herman anti-crack PSA is just not as successful as others. He's famous, so you might give it a listen, but since the ethos, pathos, and logos isn't there, it won't make the viewer think that crack is bad. The message to stay away is good, but it probably only tells you the same information, and that it doesn't teach you anything. Does it change your mind? I wouldn't bet on it.</p>
+                </div>
+            </section>
+
+            <section class="essay-section reflection-section">
+                <h3>Reflection on Essay 3</h3>
+                <div class="reflection-text-area">
+                    <p>Writing Essay 3 required a distinct shift from narrative to analysis. I began by repeatedly viewing the Pee-wee Herman PSA, noting its persuasive (or unpersuasive) elements. I then structured the essay around logos, ethos, and pathos, as this framework offered a clear method for deconstructing its effectiveness.</p>
+                    <p>This assignment primarily taught me to apply academic concepts critically to a real-world media example. It was about dissecting its components, not just describing it, and building an argument based on evidence from the PSA itself—what Pee-wee said or did—to support my claims about its weaknesses.</p>
+                    <p>The biggest challenge was transitioning from storytelling to formal analytical argument and finding enough substance in a short PSA for a detailed analysis. I had to clearly explain logos, ethos, and pathos and directly connect them to the PSA. Revision focused on strengthening topic sentences and ensuring my thesis about the PSA's ineffectiveness was consistently supported. Maintaining an objective, analytical tone was also a focus.</p>
+                    <p>This essay demonstrated my ability to engage with formal academic analysis. It showed I could understand and apply rhetorical principles, marking a good exercise in critical thinking and structured argumentation, distinct from earlier narrative work.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Joseph Gledhill - English 1510 Portfolio. All rights reserved.</p>
+        <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay 2: Sal's Pizzeria - Joseph Gledhill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Lighter, softer blue-gray background */
+            color: #1e293b; /* Slate-800 for primary text */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container-main {
+            max-width: 960px; /* Slightly wider for better content flow */
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-bottom: 4px solid #2563eb; /* Brighter blue accent */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0.75rem 0; /* Reduced padding */
+            margin: 0;
+        }
+        nav ul li a {
+            padding: 0.8rem 1.3rem; /* Adjusted padding for better touch targets */
+            margin: 0.3rem 0.2rem; /* Spacing between nav items */
+            border-radius: 6px; /* Softer rounded corners */
+            font-weight: 500;
+            font-size: 0.95rem; /* Slightly adjusted font size */
+            color: #334155; /* Slate-700 */
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #e0e7ff; /* Indigo-100 for hover */
+            color: #3730a3; /* Indigo-800 for hover text */
+            transform: translateY(-1px);
+        }
+        nav ul li a.active {
+            background-color: #2563eb; /* Brighter blue for active */
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Content Card Styling */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.09);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 3rem;
+        }
+        /* Essay Page Specific Styles */
+        .essay-page-title { /* For h2 on essay pages */
+            font-family: 'Lora', serif;
+            font-size: 2.2rem; 
+            font-weight: 700;
+            color: #172554; /* Midnight blue */
+            margin-bottom: 0.5rem; 
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #60a5fa; /* Lighter blue */
+            text-align: left; 
+        }
+        .essay-meta {
+            margin-bottom: 2rem; 
+        }
+        .essay-meta p {
+            font-size: 0.9rem;
+            color: #475569; /* Slate-600 */
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+        .essay-section {
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid #e2e8f0; /* Slate-200 */
+        }
+        .essay-section:first-of-type { 
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .essay-section h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            color: #1e40af; /* Blue-700 */
+            margin-bottom: 1rem;
+            display: inline-block; 
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #93c5fd; /* Blue-300 */
+        }
+        .essay-document-text {
+            font-family: 'Lora', serif;
+            background-color: #f8fafc; /* Slate-50 */
+            padding: 2rem; 
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; /* Slate-200 */
+            white-space: pre-wrap; 
+            font-size: 1rem;
+            line-height: 1.8; 
+            color: #334155; /* Slate-700 */
+        }
+        .essay-document-text p {
+            text-indent: 2em; 
+            margin-bottom: 0.5em !important; 
+        }
+        .essay-document-text p.no-indent { 
+            text-indent: 0 !important;
+        }
+        .essay-document-text strong.no-indent { 
+             display: block; 
+             text-indent: 0 !important;
+             margin-bottom: 0.5em !important; 
+             font-weight: bold; 
+        }
+        .essay-document-text p:last-child { 
+            margin-bottom: 0 !important;
+        }
+
+        .reflection-section h3 { 
+             color: #047857; /* Emerald-700 */
+             border-bottom-color: #34d399; /* Emerald-400 */
+        }
+        .reflection-text-area { 
+            background-color: #f0fdf4; /* Emerald-50 */
+            border-left: 4px solid #10b981; /* Emerald-500 */
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #065f46; /* Emerald-800 */
+        }
+        .reflection-text-area p {
+            text-indent: 1.5em !important; 
+            margin-bottom: 1em !important;
+            color: #065f46; 
+        }
+        .reflection-text-area p:last-child {
+            margin-bottom: 0 !important;
+        }
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            color: #64748b; /* Slate-500 */
+            border-top: 1px solid #cbd5e1; /* Slate-300 */
+            margin-top: 3rem;
+            background-color: #eef2ff; /* Indigo-50 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="essay1.html">Essay 1: Smartphone Adoption</a></li>
+                <li><a href="essay2.html" class="active">Essay 2: Sal's Pizzeria</a></li>
+                <li><a href="essay3.html">Essay 3: PSA Analysis</a></li>
+                <li><a href="essay4.html">Essay 4: Video Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-main">
+        <div class="content-card">
+            <h2 class="essay-page-title">Essay 2: A Slice of Life at Sal's Pizzeria</h2>
+            <div class="essay-meta">
+                <p><strong>Author:</strong> Joseph Gledhill</p>
+                <p><strong>Course:</strong> English 1510, Professor Turner</p>
+            </div>
+
+            <section class="essay-section">
+                <h3>Final Version</h3>
+                 <p class="essay-meta"><strong class="text-gray-700">Date:</strong> March 10, 2025</p>
+                <div class="essay-document-text">
+                    <p>A slice of pizza. That was my saving grace. On my way back "home" to a campsite costing me $25 a day, I'd stop at Sal's for something to eat. I was working two part-time jobs, Family Dollar and Pizza Hut, trying to survive and improve my situation. As a former Shift Manager at Pizza Hut, I knew how much delivery drivers could earn. Logically, I applied, but my vehicle was too old for their insurance. I was stuck.</p>
+                    <p>For weeks, I visited Sal's daily, chatting with Joe, Pena, Ryan, and whoever was working the counter. Joe had been running the pizzeria for 40 years. Every day, he made the dough and sauce by hand, while his wife, Pena, prepped the kitchen, making most things from scratch. Ryan cracked jokes while slinging dough. Sal's was more than a restaurant; it was a community. Being a pizzeria serving two college campuses, it had high turnover for delivery drivers and counter help.</p>
+                    <p>One Friday, I walked in for my usual slice and conversation, but this time Joe asked if I still wanted a job and if I had gas in my car. I said yes, and he handed me a delivery bag, a map of both campuses, and sent me into the night. That was it—I had the job.</p>
+                    <p>Delivering pizzas sounds simple: get the food to the customer. But on a Friday night at Sal's, delivering to campuses near Main Street's bar scene was something else entirely. I had to dodge drunk students stumbling through the streets, deal with customers who forgot they'd ordered, and navigate maze-like dorms. Since we delivered until 2 AM, I often encountered people too intoxicated to function, let alone accept a pizza.</p>
+                    <p>After my first shift, I wasn't sure I could handle it. There were no written rules, no training manual—just Joe's way of doing things, perfected over 40 years. I had to learn by watching, listening, and making mistakes. There was a specific way to fold pizza boxes, stack orders in the car to prevent sliding, and even talk to customers because every second mattered. One time, I got lost on campus, delivered a cold pizza, and faced an angry customer. I felt like a failure.</p>
+                    <p>A few days later, Joe called, asking if I wanted another shift. I hesitated, but the cash I had made convinced me. Over the next few shifts, I paid close attention to John, the self-proclaimed "head driver"—not an official title, but he certainly acted like it. He had a system, grouping orders by location to avoid zigzagging across campus. He knew all the shortcuts, back entrances, and places to park without getting ticketed. He even kept extra plates, drinks, and sauces in his car to avoid unnecessary trips. Between his (possibly exaggerated) mafia stories, he'd give me tips. He taught me how to double up on deliveries to save time and which customers tipped well. It wasn’t long before I started beating John back to the restaurant, even though he left with fewer orders. I had gotten good at the job.</p>
+                    <p>After some time, Joe sold the pizzeria to his brother, Johnny. Johnny was a hot-headed mess. He hadn't handled anything as stressful as running a business, and it showed. We butted heads a lot, and I even quit several times. But every time, Johnny would call me back, desperate because he couldn’t find reliable employees willing to put up with him. Joe had been calm and organized, while Johnny was chaotic, constantly changing the rules. It made me question staying at Sal's, but I needed the money, and I was good at the job. So I kept coming back, even when I wanted to walk away for good.</p>
+                    <p>Then John died. Everyone at Sal’s was devastated. He knew Sal's. He knew the streets, the customers—everything. And suddenly, he was just... gone. Even Johnny, though he tried not to show it, seemed lost. The girls at the counter cried. We all just stood there, not knowing what to do. That night, I took several of John's deliveries, even though I was still relatively new. We all pitched in. We had to keep Sal's going, for John, for each other.</p>
+                    <p>That night, we weren’t just coworkers; we were a family. John's death changed things. We helped each other more, even the new employees, sharing tips and covering shifts. It brought us together in a way nothing else could. I had to work more shifts, covering for John, and it was tough. I wasn’t just delivering pizzas anymore—I was trying to fill the shoes of a guy who, even though he was a pain, was a legend at Sal’s.</p>
+                    <p>Through it all, I realized I wasn’t just working for a paycheck anymore. I was part of something bigger. I learned more than how to deliver pizzas—I learned about teamwork, loyalty, and perseverance. I even got my own apartment. No more campsite. This job changed me. Sal’s was more than a pizzeria; it was a family, and I was proud to be part of it.</p>
+                </div>
+            </section>
+
+            <section class="essay-section">
+                <h3>Rough Draft</h3>
+                <p class="essay-meta"><strong class="text-gray-700">Date:</strong> February 25, 2025</p>
+                <div class="essay-document-text">
+                    <p>A slice of pizza. That was my saving grace. On my way back "home" to a campsite that was costing me $25 a day, I'd stop at Sal's to get something to eat. I was working two part-time jobs, Family Dollar and Pizza Hut, trying to stay alive and improve my situation. I knew from working as a Shift Manager at Pizza Hut how much delivery drivers had the potential to bring in. Logically, I applied to deliver, but my vehicle was too old for their insurance, so I was stuck. Over the course of a couple of weeks, I'd gone in daily to talk to Joe, Pena, Ryan, and whoever would be "on the counter" for the day. Joe had already been running this pizzeria for 40 years at this point. Every day, he'd make the dough and sauce by hand. His wife, Pena, would prep the kitchen every morning, most things made from scratch. Ryan would crack jokes while slingin' dough around. Sal's was just a great place. Being a pizzeria that caters to two college campuses, it had a pretty high turnover rate for delivery drivers and counter help. One Friday, I walked in for my usual slice and chat, but I was greeted by Joe, asking if I still wanted a job and if I had gas. I said yes, and he gave me a delivery bag, a map for both of the campuses, and sent me into the night. That was it. I had the job.</p>
+                    <p>Delivering pizzas sounds simple enough: get the food to the customer. But on a Friday night at Sal's, delivering to college campuses near Main Street's bar scene, it was a whole different ballgame. We're talking dodging students stumbling through the streets, dealing with customers who'd forgotten they'd even ordered, and the constant challenge of finding the right apartment or dorm room in those maze-like buildings. And since we delivered until 2 AM, there was the added bonus of encountering plenty of people too intoxicated to function, let alone accept a pizza. Honestly, after that first shift, I wasn't sure I could handle this full-time. It wasn't just the driving; it was everything else. There were no written rules, no training manual, just Joe's way of doing things, which he'd perfected over 40 years. You had to learn by watching, by listening, by making mistakes and hoping you didn't screw up too badly. Like, there was a specific way to fold the pizza boxes, a way to stack the orders in the car so they wouldn't slide around, even a way to talk to the customers on the phone, because every second counted. I remember one time, I got completely lost on campus, couldn't find the right dorm, and the pizza got cold. The customer was pissed, and I felt like a total failure. A few days went by, and then Joe called, asking if I'd like to work another shift and possibly get on the schedule. I wasn't too sure, but thinking back to the cash I'd made that night quickly pushed me to say yes. Over the next few shifts, I started paying close attention to John, the self-proclaimed "head driver" which wasn't really an official position, but he definitely acted the part. I'd watch how he gathered his deliveries in a way that maximized his speed and efficiency. He had this system, where he'd group orders by location, so he wasn't zigzagging all over campus. He knew all the shortcuts, all the back entrances to the dorms, all the places where you could park without getting a ticket. He'd keep extra plates, drinks, and sauces in his car in case he forgot something, avoiding unnecessary return trips. He'd even give me some advice here and there, between his (possibly embellished) mafia stories. With his heavy Brooklyn accent and his intense delivery, you tended to believe him. I remember one time, he showed me how to "double up" on deliveries, taking two orders to the same building at the same time, saving a ton of time. He eventold me which customers were good tippers and which ones were notorious for stiffing you. It was like having a personal mentor, a guide to the crazy world of Sal's. It didn't take very long for me to pick up on most of the tips and tricks. Soon, I was even beating John back to the restaurant, even though he'd leave with less orders sometimes. Overall, I'd gotten pretty good at the job.</p>
+                    <p>After a while of working under Joe and Pena, Joe sold the pizzeria to his brother, Johnny. Johnny was a hot-headed, insane mess at first. He hadn't really done anything as stressful as running his own business, and it really showed. We butt heads, a lot, I'd even quit several times as his issues got to me. Every time he'd call me back up a few days later asking me to come in because he couldn't find anyone that was willing to show up to work (and deal with him). It was like going from one extreme to the other. Joe was calm, organized, and had this quiet authority. Johnny was all over the place, yelling, screaming, and constantly changing the rules. It was a total shock to the system, and it made me question whether I wanted to stay at Sal's. But I needed the money, and I'd gotten good at the job, so I kept coming back, even when I wanted to walk out for good.</p>
+                    <p>Then John died. Everyone at Sal’s was devastated. he knew Sal's. He knew the streets, the customers, everything. And suddenly, he was just...gone. Everyone was sad, even Johnny, though he tried not to show it. He yelled more, actually, but it felt different, like he was lost. The girls at the counter were crying. We all just stood there for a while, not knowing what to do. I ended up taking a bunch of John's deliveries that night, even though I was still pretty new. I had to, there was no one else. We all did extra, pitched in. It was like, we had to keep Sal's going, for John, for each other. That night, we weren't just coworkers; we were a family, dealing with this messed-up thing together. We started helping each other out more, even the new people, sharing tips, covering shifts. It was like John's death showed us what really mattered. I had to work more shifts, cover for John, and it was hard. I wasn't just delivering pizzas anymore; I was trying to fill the shoes of a guy who, even though he was a pain, was a legend at Sal's. It was like the shared grief, and the need to keep the place running, made us a real team, not just a bunch of people working at the same place. After all that, I realized I wasn't just working for a paycheck anymore. I was part of something bigger. I learned how to do the job, how to deal with crazy situations, and how to work with people, even difficult ones like Johnny. I even got my own apartment, finally. No more campsite. This job, it changed me. I learned more than just how to deliver pizzas; I learned about teamwork, and loyalty, and how to keep going even when things suck. Sal's was more than a pizzeria; it was a family, and I was part of it.</p>
+                </div>
+            </section>
+
+            <section class="essay-section reflection-section">
+                <h3>Reflection on Essay 2</h3>
+                <div class="reflection-text-area">
+                    <p>For Essay 2, I delved into a formative period. I started by brainstorming key people and moments at Sal's: getting hired, delivery chaos, learning from John, Johnny’s takeover, and John's death. I wanted to capture the events and the *feeling* of working there, structuring it chronologically to show my progression and the community's evolution.</p>
+                    <p>This essay taught me to convey more complex personal experiences. It involved multiple characters, a dynamic environment, and significant emotional shifts. I aimed to show how Sal's was more than a job—it became a community, and after John’s death, like a family. Conveying that impact authentically was a key learning point.</p>
+                    <p>The main challenge was weaving together different threads without scattering the focus. I selected anecdotes—delivery challenges, the contrast between Joe and Johnny—that best illustrated the atmosphere and my growth. Revision focused on smoother transitions and ensuring my personal transformation was clear. Describing characters like Joe and John vividly was also important.</p>
+                    <p>Essay 2 marked a step up in my narrative writing, handling a more involved story with greater emotional depth. It showed I could describe a specific culture and reflect on personal development from challenging experiences, tying everything together to show Sal's significant impact on my life.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Joseph Gledhill - English 1510 Portfolio. All rights reserved.</p>
+        <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay 4: Video Games - Joseph Gledhill</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Lighter, softer blue-gray background */
+            color: #1e293b; /* Slate-800 for primary text */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container-main {
+            max-width: 960px; /* Slightly wider for better content flow */
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-bottom: 4px solid #2563eb; /* Brighter blue accent */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0.75rem 0; /* Reduced padding */
+            margin: 0;
+        }
+        nav ul li a {
+            padding: 0.8rem 1.3rem; /* Adjusted padding for better touch targets */
+            margin: 0.3rem 0.2rem; /* Spacing between nav items */
+            border-radius: 6px; /* Softer rounded corners */
+            font-weight: 500;
+            font-size: 0.95rem; /* Slightly adjusted font size */
+            color: #334155; /* Slate-700 */
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #e0e7ff; /* Indigo-100 for hover */
+            color: #3730a3; /* Indigo-800 for hover text */
+            transform: translateY(-1px);
+        }
+        nav ul li a.active {
+            background-color: #2563eb; /* Brighter blue for active */
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Content Card Styling */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.09);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 3rem;
+        }
+        /* Essay Page Specific Styles */
+        .essay-page-title { /* For h2 on essay pages */
+            font-family: 'Lora', serif;
+            font-size: 2.2rem; 
+            font-weight: 700;
+            color: #172554; /* Midnight blue */
+            margin-bottom: 0.5rem; 
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #60a5fa; /* Lighter blue */
+            text-align: left; 
+        }
+        .essay-meta {
+            margin-bottom: 2rem; 
+        }
+        .essay-meta p {
+            font-size: 0.9rem;
+            color: #475569; /* Slate-600 */
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+        .essay-section {
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid #e2e8f0; /* Slate-200 */
+        }
+        .essay-section:first-of-type { 
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .essay-section h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            color: #1e40af; /* Blue-700 */
+            margin-bottom: 1rem;
+            display: inline-block; 
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #93c5fd; /* Blue-300 */
+        }
+        .essay-document-text {
+            font-family: 'Lora', serif;
+            background-color: #f8fafc; /* Slate-50 */
+            padding: 2rem; 
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; /* Slate-200 */
+            white-space: pre-wrap; 
+            font-size: 1rem;
+            line-height: 1.8; 
+            color: #334155; /* Slate-700 */
+        }
+        .essay-document-text p {
+            text-indent: 2em; 
+            margin-bottom: 0.5em !important; 
+        }
+        .essay-document-text p.no-indent { 
+            text-indent: 0 !important;
+        }
+        .essay-document-text strong.no-indent { /* For bolded lines like "Works Cited" if they are in a <p> tag */
+             display: block; /* Make it block to behave like a heading */
+             text-indent: 0 !important;
+             margin-bottom: 0.5em !important; /* Add some space after it */
+             font-weight: bold; /* Ensure it's bold */
+        }
+        .essay-document-text p:last-child { 
+            margin-bottom: 0 !important;
+        }
+
+        .reflection-section h3 { 
+             color: #047857; /* Emerald-700 */
+             border-bottom-color: #34d399; /* Emerald-400 */
+        }
+        .reflection-text-area { 
+            background-color: #f0fdf4; /* Emerald-50 */
+            border-left: 4px solid #10b981; /* Emerald-500 */
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #065f46; /* Emerald-800 */
+        }
+        .reflection-text-area p {
+            text-indent: 1.5em !important; 
+            margin-bottom: 1em !important;
+            color: #065f46; 
+        }
+        .reflection-text-area p:last-child {
+            margin-bottom: 0 !important;
+        }
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            color: #64748b; /* Slate-500 */
+            border-top: 1px solid #cbd5e1; /* Slate-300 */
+            margin-top: 3rem;
+            background-color: #eef2ff; /* Indigo-50 */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="essay1.html">Essay 1: Smartphone Adoption</a></li>
+                <li><a href="essay2.html">Essay 2: Sal's Pizzeria</a></li>
+                <li><a href="essay3.html">Essay 3: PSA Analysis</a></li>
+                <li><a href="essay4.html" class="active">Essay 4: Video Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-main">
+        <div class="content-card">
+            <h2 class="essay-page-title">Essay 4: The Complex Effects of Video Games</h2>
+            <div class="essay-meta">
+                <p><strong>Author:</strong> Joseph Gledhill</p>
+                <p><strong>Course:</strong> English 1510, Professor Turner</p>
+            </div>
+
+            <section class="essay-section">
+                <h3>Final Version</h3>
+                <p class="essay-meta"><strong class="text-gray-700">Date:</strong> May 15, 2025</p>
+                <div class="essay-document-text">
+                    <p class="no-indent"><strong>The Complex Effects of Video Games</strong></p>
+                    <p>Video games have changed a lot, from simple arcade games to the complex, absorbing digital experiences common today. Because so many people play them, especially younger people, there's a lot of debate about how they affect players. Talks often swing between pointing out potential brain boosts and social connections, and warning about bad results like addiction and harmful behavior changes. While worries about playing too much and addiction are real and important, looking closely shows that video games also offer clear benefits for thinking and socializing. Putting together research on thinking skills, social effects, and addiction helps give a clearer picture. Key sources for this discussion include a study on thinking effects published in PLOS One, an article about gaming as social spaces from JCFS Chicago, and research on Internet Gaming Disorder (IGD) from Cureus (accessible via PMC). In the end, while the risk of addiction means we need to be careful, the thinking and social pluses suggest video games can be good if used in moderation and with awareness.</p>
+                    <p>One big plus often highlighted in discussions about video games is their potential to enhance cognitive skills. A growing body of research indicates that engaging with certain types of video games can lead to measurable improvements in various mental abilities. For instance, a study by Palaus et al. published in PLOS One, which examined the effects of playing practice on cognition, found significant correlations between video gaming and enhanced performance in areas such as sustained attention, working memory, and cognitive flexibility. The researchers suggest that the demanding nature of many contemporary games—requiring players to track multiple objectives simultaneously, react quickly to changing stimuli, and adapt strategies on the fly—effectively serves as a workout for these cognitive functions. This perspective challenges older views that often dismissed gaming as a passive or mentally detrimental activity. Instead, the evidence from studies like that of Palaus et al. points towards active cognitive engagement and the potential for tangible skill development through gameplay, suggesting that the virtual challenges in games can translate to real-world cognitive advantages.</p>
+                    <p>Beyond individual cognitive enhancements, video games frequently function as significant platforms for social interaction, directly countering the persistent stereotype of the isolated gamer. As explored in an article by JCFS Chicago, online multiplayer games, in particular, foster environments where communication, collaboration, and community building are central to the experience. These digital settings allow players to work together towards common goals, form friendships that can extend beyond the game, and practice essential teamwork skills, mirroring many aspects of real-world social dynamics. For individuals who might find face-to-face socialization challenging due to geographical distance, social anxiety, or other personal circumstances, these online communities can offer invaluable social support and a profound sense of belonging. This view of gaming underscores that its impact is not solely confined to the individual player's mind but also extends to the formation and maintenance of social ties, highlighting a crucial positive dimension of the gaming experience that is often overlooked.</p>
+                    <p>However, these positive aspects of gaming must be carefully weighed against the serious and well-documented risks associated with excessive play, particularly the development of Internet Gaming Disorder (IGD). Research published by Paulus et al. in Cureus delves into the mechanisms and consequences of video game addiction, noting striking neurobiological similarities between IGD and substance use disorders, particularly in how they affect the brain's reward system. This source explains that excessive gaming can lead to a range of detrimental outcomes, including the neglect of academic, professional, and personal responsibilities, deterioration of relationships outside the gaming sphere, and significant harm to overall mental and physical health. Adding to these concerns, an article from Akron Children's Hospital, "Kids and Video Games: The Good and the Bad," points out potential negative consequences for younger players, such as adverse impacts on social development if virtual interactions largely displace real-world ones, disruptions to sleep patterns, and negative effects on mood. The clinical recognition of IGD and these associated harms emphasizes that for some individuals, gaming can transition from a harmless pastime into a compulsive behavior with severe negative repercussions, underscoring the critical importance of identifying problematic patterns early.</p>
+                    <p>Synthesizing these varied perspectives reveals the intricate and often contradictory nature of video games' influence. The cognitive improvements detailed in studies like the PLOS One article (Palaus et al.) and the opportunities for social connection described by JCFS Chicago present a compelling case for the beneficial potential of video games. Yet, the stark realities of IGD, as elucidated by Paulus et al. and the concerns raised by Akron Children's Hospital, serve as a crucial reminder of the significant downsides. This complex picture is further nuanced by resources like Charlie Health's article "Video Games and Mental Health," which acknowledges both potential mental health benefits, such as stress reduction and improved problem-solving skills, and inherent risks, including sleep disruption, tendencies towards escapism, and possible links to depression or anxiety if gaming becomes excessive. It appears, then, that the ultimate outcome of engaging with video games is not predetermined by the medium itself but is heavily contingent on individual usage patterns, the specific content engaged with, and the psychological disposition of the player. The critical distinction often lies between moderate, controlled engagement that can be enriching, and excessive, compulsive play that becomes detrimental.</p>
+                    <p>Therefore, a balanced understanding necessitates recognizing both the capacity of video games to foster skill development and social bonds, alongside the genuine danger of addiction and other negative consequences. The key to harnessing the positive aspects while mitigating the negative ones seems to lie in promoting responsible gaming practices. This includes fostering an awareness of one's own gaming habits, understanding the signs of problematic use, and consciously balancing gaming with other life activities and responsibilities. For younger players, guidance from parents and caregivers in establishing healthy boundaries and choosing age-appropriate content is also crucial, as suggested by resources like the Akron Children's article. Ultimately, encouraging mindful engagement allows individuals to potentially benefit from the cognitive and social opportunities video games can offer without succumbing to their more perilous aspects.</p>
+                    <p>In conclusion, the effect of video games is undeniably multifaceted, presenting a spectrum of possible benefits and serious risks. While research increasingly points to tangible improvements in cognitive functions like memory and attention, and demonstrates their capacity to facilitate meaningful social connections and communities, these positive attributes are counterbalanced by the well-documented dangers of Internet Gaming Disorder and other negative behavioral and health outcomes. The risk of addiction, with its potential to severely impact mental well-being and daily functioning, cannot be understated. Consequently, while video games can indeed serve as valuable tools for mental exercise and social engagement, their constructive potential is most likely to be realized through responsible, moderate, and mindful play. This requires individuals, and society at large, to cultivate an awareness of when engagement crosses the threshold from a beneficial pastime into a problematic dependency, ensuring that the allure of virtual worlds enhances, rather than detracts from, a healthy and balanced life.</p>
+                    <p class="no-indent"><strong>Works Cited</strong></p>
+                    <p class="no-indent">Akron Children's Hospital. "Kids and Video Games: The Good and the Bad." Akron Children's, 13 Feb. 2023. www.akronchildrens.org/inside/2023/02/13/kids-and-video-games-the-good-and-the-bad/.</p>
+                    <p class="no-indent">Charlie Health. "Video Games and Mental Health." Charlie Health, www.charliehealth.com/post/video-games-and-mental-health. Accessed 15 May 2025.</p>
+                    <p class="no-indent">JCFS Chicago. "Video Games Are Social Spaces: How Video Games Help People Connect." JCFS Chicago, 20 Apr. 2021, www.jcfs.org/response/blog/video-games-are-social-spaces-how-video-games-help-people-connect.</p>
+                    <p class="no-indent">Palaus, Marc, et al. "Video Games and Board Games: Effects of Playing Practice on Cognition." PLOS ONE, vol. 18, no. 3, 23 Mar. 2023, e0283654, doi.org/10.1371/journal.pone.0283654.</p>
+                    <p class="no-indent">Paulus, Frank W., et al. "Symptoms, Mechanisms, and Treatments of Video Game Addiction." Cureus, vol. 15, no. 3, 30 Mar. 2023, e36900, doi.org/10.7759/cureus.36900.</p>
+                </div>
+            </section>
+
+            <section class="essay-section">
+                <h3>Rough Draft</h3>
+                <p class="essay-meta"><strong class="text-gray-700">Date:</strong> April 29, 2025</p>
+                <div class="essay-document-text">
+                    <p class="no-indent"><strong>The Complex Effects of Video Games</strong></p>
+                    <p>Video games have changed a lot, from simple arcade games to the complex, absorbing digital experiences common today. Because so many people play them, especially younger people, there's a lot of debate about how they affect players. Talks often swing between pointing out potential brain boosts and social connections, and warning about bad results like addiction and harmful behavior changes. While worries about playing too much and addiction are real and important, looking closely shows that video games also offer clear benefits for thinking and socializing. Putting together research on thinking skills, social effects, and addiction helps give a clearer picture. Key sources for this discussion include a study on thinking effects published in PLOS One, an article about gaming as social spaces from JCFS Chicago, and research on Internet Gaming Disorder (IGD) from PMC (PubMed Central). In the end, while the risk of addiction means we need to be careful, the thinking and social pluses suggest video games can be good if used in moderation and with awareness.</p>
+                    <p>One big plus is in the area of thinking skills. More and more research shows that playing video games can improve certain mental abilities. For example, a study in PLOS One looking at how playing affects skills found links between video gaming and doing better in areas like attention, working memory, and thinking flexibly. The study suggests that the tough demands of many games—making players track goals, react fast, and change plans—give these thinking skills a good workout. This is very different from views that see gaming as just passive or bad for the brain. Instead, this proof points to active thinking and possible skill building from playing games.</p>
+                    <p>Besides thinking skills, video games often act as important places for social interaction, challenging the idea of the lonely gamer. As JCFS Chicago explored, online multiplayer games help people communicate and build communities. These online settings let players work together on goals, make friends, and practice teamwork, much like in real life. For people who find it hard to socialize in person (maybe because of distance, anxiety, or other reasons), these online groups can offer needed social support and a feeling of belonging. This view shows that gaming's effect isn't just on the individual but also helps build and keep social ties.</p>
+                    <p>However, the good sides of gaming must be compared with the serious risks of playing too much, especially developing Internet Gaming Disorder (IGD). Research from PMC looks into how video game addiction works and its results, noting brain similarities between IGD and drug addiction. This source explains how too much gaming can lead to bad results, like ignoring responsibilities, damaged relationships outside of gaming, and harm to mental health, possibly tied to changes in the brain's reward system. The fact that IGD exists shows that for some people, gaming can turn from a hobby into an out-of-control behavior with serious bad effects, showing why it's important to spot problem signs.</p>
+                    <p>Putting these different views together shows a complicated situation. The thinking improvements found in studies like the PLOS One article and the social connections described by JCFS Chicago make strong cases for the good potential of video games. But the real problem of IGD, explained in the PMC article, is a serious reminder of the possible downsides. It suggests that the result of gaming really depends on how and how much someone plays. The main difference seems to be between playing a moderate amount, which can be helpful, and playing too much in a way that becomes an addiction. So, a fair view recognizes both the ability to build skills and social bonds, along with the real danger of addiction.</p>
+                    <p>In conclusion, the effect of video games has many sides, offering both possible benefits and serious risks. While research points out improvements in thinking skills like memory and attention, and shows they can help build social connections and communities, these good points exist alongside the known dangers of Internet Gaming Disorder. The risk of addiction, with its bad effects on mental health and daily life, can't be ignored. Therefore, while video games can be useful tools for mental exercise and social life, their good potential is mostly reached through responsible and moderate play, requiring people to be aware of when gaming crosses the line into being a problem.</p>
+                    <p class="no-indent">(notfinished)</p>
+                    <p class="no-indent"><strong>Works Cited</strong></p>
+                    <p class="no-indent">Akron Children's Hospital. "Kids and video games: the good and the bad.” www.akronchildrens.org/inside/2023/02/13/kids-and-video-games-the-good-and-the-bad/.</p>
+                    <p class="no-indent">Charlie Health. "Video Games and Mental Health." www.charliehealth.com/post/video-games-and-mental-health.</p>
+                    <p class="no-indent">JCFS Chicago. "Video Games Are Social Spaces: How Video Games Help People Connect." www.jcfs.org/response/blog/video-games-are-social-spaces-how-video-games-help-people-connect.</p>
+                    <p class="no-indent">Palaus, Marc, et al. "Video games and board games: Effects of playing practice on cognition." PLOS One journals.plos.org/plosone/article?id=10.1371/journal.pone.0283654.</p>
+                    <p class="no-indent">Paulus, Frank W., et al. "Symptoms, Mechanisms, and Treatments of Video Game Addiction." Cureus www.ncbi.nlm.nih.gov/pmc/articles/PMC10065366/.</p>
+                </div>
+            </section>
+
+            <section class="essay-section reflection-section">
+                <h3>Reflection on Essay 4</h3>
+                <div class="reflection-text-area">
+                    <p>Essay 4 was the semester's most involved writing process, requiring me to synthesize multiple sources. I began with research, seeking varied perspectives on video games. With my articles gathered, I outlined how their main points interconnected and related to my developing thesis on the balance between gaming's benefits and risks. The essay was structured around cognitive benefits, social aspects, and addiction, using sources to support each section.</p>
+                    <p>This essay taught me a great deal about comparative textual analysis and research-based argumentation. It wasn't just summarizing sources, but placing them in conversation to build a larger, nuanced claim. I learned to integrate quotes and paraphrases smoothly and the importance of clear attribution. Crafting a correct Works Cited page was also a key learning experience.</p>
+                    <p>The main challenges involved managing the complexity of multiple viewpoints without letting sources overshadow my own argument and voice. It was important to include sources highlighting gaming's negatives, like addiction, which required careful balancing. Revision heavily focused on transitions between ideas and sources, ensuring logical flow and true synthesis rather than mere listing of authorial points. MLA formatting required detailed attention.</p>
+                    <p>This essay demonstrates significant growth in my academic writing. It shows my ability to conduct research, critically evaluate and synthesize sources, construct a complex argument, and adhere to academic conventions, reflecting a more sophisticated engagement with research than my earlier work.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Joseph Gledhill - English 1510 Portfolio. All rights reserved.</p>
+        <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    </footer>
+</body>
+</html>
