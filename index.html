@@ -1,10 +1,283 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>My Cool Website</title>
-   </head>
-   <body>
-      <h1>Welcome to my website! ⭐️</h1>
-      <p>How was your day? 🎉</p>
-   </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Gledhill - English 1510 Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body and Typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Lighter, softer blue-gray background */
+            color: #1e293b; /* Slate-800 for primary text */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+        .container-main {
+            max-width: 960px; /* Slightly wider for better content flow */
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            border-bottom: 4px solid #2563eb; /* Brighter blue accent */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            padding: 0.75rem 0; /* Reduced padding */
+            margin: 0;
+        }
+        nav ul li a {
+            padding: 0.8rem 1.3rem; /* Adjusted padding for better touch targets */
+            margin: 0.3rem 0.2rem; /* Spacing between nav items */
+            border-radius: 6px; /* Softer rounded corners */
+            font-weight: 500;
+            font-size: 0.95rem; /* Slightly adjusted font size */
+            color: #334155; /* Slate-700 */
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: #e0e7ff; /* Indigo-100 for hover */
+            color: #3730a3; /* Indigo-800 for hover text */
+            transform: translateY(-1px);
+        }
+        nav ul li a.active {
+            background-color: #2563eb; /* Brighter blue for active */
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Content Card Styling */
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.09);
+            padding: 2.5rem; /* Increased padding */
+            margin-bottom: 3rem;
+        }
+        .content-card h2 { /* Main Page Title */
+            font-family: 'Lora', serif;
+            font-size: 2.5rem; /* 40px */
+            font-weight: 700; /* Bolder */
+            color: #172554; /* Midnight blue */
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #60a5fa; /* Lighter blue for underline */
+            text-align: center;
+        }
+        .content-card .page-subtitle { /* Subtitle for main page */
+            font-size: 1.1rem;
+            color: #475569; /* Slate-600 */
+            text-align: center;
+            margin-top: -0.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .content-card h3 { /* Section Titles (Bio, Cover Letter) */
+            font-family: 'Lora', serif;
+            font-size: 1.85rem; /* ~30px */
+            font-weight: 600;
+            color: #1e3a8a; /* Darker blue */
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #93c5fd; /* Light blue underline for sections */
+        }
+
+        /* Text Content Styling */
+        .text-content p, .text-content div {
+            margin-bottom: 1.35rem;
+            font-size: 1rem; /* Standardized body text */
+            line-height: 1.75; /* Increased line height for readability */
+            color: #334155; /* Slate-700 for body text */
+        }
+        .text-content p:last-child {
+            margin-bottom: 0;
+        }
+        .text-content strong {
+            font-weight: 600;
+            color: #1e293b; /* Slate-800 */
+        }
+        .cover-letter-meta p {
+            font-size: 0.9rem;
+            color: #475569; /* Slate-600 */
+            margin-bottom: 0.15rem;
+            line-height: 1.5;
+        }
+        .cover-letter-salutation, .cover-letter-closing {
+            margin-top: 1.5rem;
+        }
+
+        /* Footer Styling */
+        .footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            font-size: 0.9rem;
+            color: #64748b; /* Slate-500 */
+            border-top: 1px solid #cbd5e1; /* Slate-300 */
+            margin-top: 3rem;
+            background-color: #eef2ff; /* Indigo-50 for footer background */
+        }
+
+        /* Essay Page Specific Styles (copied for completeness, though not all used on index.html) */
+        .essay-page-title { 
+            font-family: 'Lora', serif;
+            font-size: 2.2rem; 
+            font-weight: 700;
+            color: #172554;
+            margin-bottom: 0.5rem; 
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #60a5fa;
+            text-align: left; 
+        }
+        .essay-meta {
+            margin-bottom: 2rem; 
+        }
+        .essay-meta p {
+            font-size: 0.9rem;
+            color: #475569; 
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+        .essay-section { /* Applied to Cover Letter section on index.html for consistency */
+            margin-top: 3rem; 
+            padding-top: 2rem; 
+            border-top: 1px solid #e2e8f0; 
+        }
+        .essay-section:first-of-type { /* Bio note is first, so no top border */
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+        .essay-section h3 { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            color: #1e40af; 
+            margin-bottom: 1rem;
+            display: inline-block; 
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #93c5fd; 
+        }
+        .essay-document-text { /* Not directly used on index.html, but kept for CSS consistency if needed */
+            font-family: 'Lora', serif;
+            background-color: #f8fafc; 
+            padding: 2rem; 
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; 
+            white-space: pre-wrap; 
+            font-size: 1rem;
+            line-height: 1.8; 
+            color: #334155; 
+        }
+        .essay-document-text p { /* Rules for essay paragraph indentation */
+            text-indent: 2em; 
+            margin-bottom: 0.5em !important; 
+        }
+        .essay-document-text p.no-indent { 
+            text-indent: 0 !important;
+        }
+        .essay-document-text strong.no-indent { 
+             display: block; 
+             text-indent: 0 !important;
+             margin-bottom: 0.5em !important; 
+             font-weight: bold; 
+        }
+        .essay-document-text p:last-child { 
+            margin-bottom: 0 !important;
+        }
+        .reflection-section h3 { /* Not used on index.html */
+             color: #047857; 
+             border-bottom-color: #34d399; 
+        }
+        .reflection-text-area { /* Not used on index.html */
+            background-color: #f0fdf4; 
+            border-left: 4px solid #10b981; 
+            padding: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #065f46; 
+        }
+        .reflection-text-area p { /* Rules for reflection paragraph indentation */
+            text-indent: 1.5em !important; 
+            margin-bottom: 1em !important;
+            color: #065f46; 
+        }
+        .reflection-text-area p:last-child {
+            margin-bottom: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="essay1.html">Essay 1: Smartphone Adoption</a></li>
+                <li><a href="essay2.html">Essay 2: Sal's Pizzeria</a></li>
+                <li><a href="essay3.html">Essay 3: PSA Analysis</a></li>
+                <li><a href="essay4.html">Essay 4: Video Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-main">
+        <div class="content-card">
+            <h2>Joseph Gledhill's English 1510 Portfolio</h2>
+            <p class="page-subtitle">Professor Turner - Jamestown Community College - Spring 2025</p>
+
+            <section id="bio-note" class="text-content essay-section"> <h3>Author Bio</h3>
+                <p>My name is Joseph Gledhill, and this portfolio showcases my work from Professor Turner's English 1510: English Composition I at Jamestown Community College. Through this course, I've engaged with various writing styles, from personal narrative to critical analysis, often drawing on real-world experiences to explore themes of adaptation, community, and perseverance. I am committed to developing strong communication skills and value the process of learning through detailed observation and thoughtful reflection, qualities I've aimed to bring to each piece included here.</p>
+            </section>
+
+            <section id="cover-letter" class="text-content essay-section"> 
+                <h3>Cover Letter</h3>
+                <div class="cover-letter-meta">
+                    <p>Joseph Gledhill</p>
+                    <p>English 1510, Professor Turner</p>
+                    <p>Jamestown Community College</p>
+                    <p>May 16, 2025</p>
+                </div>
+
+                <p class="cover-letter-salutation">Dear Portfolio Reviewer,</p>
+
+                <p>This portfolio presents the work I have completed in Professor Turner’s English 1510: English Composition I at Jamestown Community College. This semester has been a valuable experience, challenging me to engage with various writing styles, from personal narrative to research-based argumentation. Through these assignments, I have developed a deeper understanding of writing as a process involving critical thinking, analysis, and substantive revision. Prior to this course, my writing experiences were often focused on practical, day-to-day communication, and I was particularly focused on developing a stronger foundation for academic writing and exploring different rhetorical strategies. I believe this collection demonstrates significant growth in these areas.</p>
+
+                <p>The initial assignment, "Smartphone Adoption," is a personal narrative that reflects on the experience of teaching a family member new technology. My aim was to illustrate this process clearly, using specific details and a chronological structure to capture both the challenges and the rewarding outcome. The process of writing this piece emphasized careful observation and conveying a genuine personal connection to the experience described.</p>
+
+                <p>"A Slice of Life at Sal's Pizzeria" was a particularly significant essay for me. It explores the discourse community I became part of while working as a delivery driver. My goal was to convey the essential elements of this community: its members, its unwritten operational norms, and the collaborative spirit, especially during demanding times. Comparing the initial draft to the final version, it is evident that my revisions focused on sharpening narrative details and more clearly articulating how my participation in this community contributed to my personal development, particularly in learning about teamwork and perseverance. That experience marked a notable turning point.</p>
+
+                <p>The subsequent assignment involved a rhetorical analysis of the "Pee-wee Herman Talks About Crack Cocaine" Public Service Announcement. This assignment shifted the focus from personal narrative to an objective deconstruction of an argument's mechanics, applying concepts such as logos, ethos, and pathos. My initial draft for this piece was more informal; I recognized the need to adopt a more conventional academic style, language, and structure for the final version. Consequently, the revision process for this essay was a significant learning experience in developing analytical arguments and presenting them with appropriate academic rigor.</p>
+
+                <p>The final major paper, "The Complex Effects of Video Games," required me to research and engage with various scholarly sources to explore the multifaceted impacts of video gaming. The task extended beyond expressing personal opinion to critically examining research, synthesizing diverse perspectives, and constructing a balanced argument. Ensuring accurate citation and maintaining a clear authorial voice amidst the research were crucial aspects of completing this assignment successfully. This project provided a valuable challenge in managing and synthesizing a substantial body of information.</p>
+
+                <p>In conclusion, English 1510 has substantially influenced my perspective on writing. I now have a much clearer understanding of writing as an iterative process, encompassing initial brainstorming and outlining, drafting, and, crucially, multiple stages of revision and editing based on critical reflection. I also feel more confident in my ability to adapt my writing style and structure for different purposes, audiences, and rhetorical situations. Looking ahead, I aim to continue refining my ability to articulate complex ideas with clarity and to further develop my distinctive voice within academic discourse.</p>
+
+                <p>Thank you for taking the time to review my work. I hope this portfolio provides insight into my development as a writer this semester.</p>
+
+                <p class="cover-letter-closing">Sincerely,</p>
+                <p>Joseph Gledhill</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="currentYear"></span> Joseph Gledhill - English 1510 Portfolio. All rights reserved.</p>
+        <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    </footer>
+</body>
 </html>
